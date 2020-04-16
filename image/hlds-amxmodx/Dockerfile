@@ -35,8 +35,8 @@ RUN curl -sqL "http://www.amxmodx.org/release/amxmodx-$amxmod_version-base-linux
 RUN curl -sqL "http://www.amxmodx.org/release/amxmodx-$amxmod_version-cstrike-linux.tar.gz" | tar -C /opt/hlds/cstrike/ -zxvf -
 
 # Install dproto
-RUN mkdir -p /opt/hlds/cstrike/addons/dproto
-COPY --chown=cstrike:cstrike mod/dproto/dproto_i386.so /opt/hlds/cstrike/addons/dproto/dproto_i386.so
+#RUN mkdir -p /opt/hlds/cstrike/addons/dproto
+#COPY --chown=cstrike:cstrike mod/dproto/dproto_i386.so /opt/hlds/cstrike/addons/dproto/dproto_i386.so
 
 # Install CSDM
 RUN curl -sqL 'https://www.bailopan.net/csdm/files/csdm-2.1.2.zip' -o '/opt/csdm.zip' && \

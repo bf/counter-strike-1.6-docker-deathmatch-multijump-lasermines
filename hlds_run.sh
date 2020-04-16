@@ -41,7 +41,11 @@ fi
 if [ -n "${ADMIN_NAME}" ] && [ -n "${ADMIN_PASSWORD}" ]; then
     for name in ${ADMIN_NAME//,/ }
     do
-        echo "\"${name}\" \"${ADMIN_PASSWORD}\"  \"abcdefghijklmnopqrstu\" \"a\"" >> "${HLDS}/cstrike/addons/amxmodx/configs/users.ini"
+	if [[ $name = STEAM* ]]; then
+	        echo "\"${name}\" \"\"  \"abcdefghijklmnopqrstu\" \"ce\"" >> "${HLDS}/cstrike/addons/amxmodx/configs/users.ini"
+	else
+		echo "\"${name}\" \"${ADMIN_PASSWORD}\"  \"abcdefghijklmnopqrstu\" \"a\"" >> "${HLDS}/cstrike/addons/amxmodx/configs/users.ini"
+	fi
     done
     echo "rcon_password \"${ADMIN_PASSWORD}\"" >> "${HLDS}/cstrike/server.cfg"
 fi
@@ -53,11 +57,29 @@ fi
 
 # Enable AMX Plugins
 # echo "restmenu.amxx             ; Restrict Weapons" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
-# echo "deathbeams.amxx           ; Death Beams" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
-# echo "hsonly.amxx               ; HeadShot Only" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "deathbeams.amxx           ; Death Beams" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "multijump.amxx		; Multijump" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "bullet-damage.amxx	; Bullet damage" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "hsonly.amxx               ; HeadShot Only" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "parachute.amxx            ; Parachute" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "hp-ap-after-kill.amxx	; HP & AP After Kill" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "client-checker.amxx	; Client Checker" >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "fire-in-the-hole-remover.amxx	; removes chat messages " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "ammo-refill.amxx		; csdm refill ammo after kill " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+#echo "antiblock.amxx		; antiblock " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "no-objectives.amxx	; no objectives " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "admin-online.amxx		; admin online status " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+echo "ultimate_sounds.amxx	; ultimate sound package " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+
+# enable geoip module for client-checker
+sed -ri "s/;geoip.*/geoip/g; s/;fakemeta.*/fakemeta/g; s/;engine.*/engine/g; s/;hamsandwich.*/hamsandwich/;" "${HLDS}/cstrike/addons/amxmodx/configs/modules.ini"
+
 
 # Disable AMX Messages
-sed -ri 's/(adminhelp|multilingual|adminchat|antiflood|scrollmsg|imessage|adminvote)\.amxx.*//g' "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+#sed -ri 's/(adminhelp|multilingual|adminchat|antiflood|scrollmsg|imessage|adminvote)\.amxx.*//g' "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+sed -ri 's/amx_scrollmsg .*/amx_scrollmsg "\%hostname\%" 600/g; s/amx_imessage .*/amx_imessage "\%hostname\%" "000100255"/g' "${HLDS}/cstrike/addons/amxmodx/configs/amxx.cfg"
+sed -ri 's/(multilingual)\.amxx.*//g' "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+
 
 # Enable YaPB Bots
 if [ "${YAPB_ENABLED}" -eq 1 ];then
@@ -71,7 +93,7 @@ fi
 # Enable CSDM
 if [ "${CSDM_MODE}" -ge 1 ]; then
      echo 'csdm_active "1"' >> "${HLDS}/cstrike/server.cfg"
-     sed -ri 's/^menus =.*/menus = ps/; s/^autoitems =.*/autoitems = g/' "${HLDS}/cstrike/addons/amxmodx/configs/csdm.cfg"
+     sed -ri 's/^menus =.*/menus = ps/; s/^autoitems =.*/autoitems = ahg/; s/^grenades =.*/grenades = hs/g;' "${HLDS}/cstrike/addons/amxmodx/configs/csdm.cfg"
 else
     echo 'csdm_active "0"' >> "${HLDS}/cstrike/server.cfg"
 fi
