@@ -1,3 +1,7 @@
+This project has been shamelessly forked from https://github.com/vitordino/counter-strike-docker
+
+I have fixed some bugs and added several mods such as multijump, laser mines, HUD damage, bots
+
 # CS 1.6 HLDS + AMX MOD X + CSDM
 
 
