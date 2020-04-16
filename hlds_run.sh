@@ -67,7 +67,7 @@ echo "client-checker.amxx	; Client Checker" >> "${HLDS}/cstrike/addons/amxmodx/c
 echo "fire-in-the-hole-remover.amxx	; removes chat messages " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
 echo "ammo-refill.amxx		; csdm refill ammo after kill " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
 #echo "antiblock.amxx		; antiblock " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
-echo "cs_team_semiclip.amxx		; cs team semiclip " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
+#echo "cs_team_semiclip.amxx		; cs team semiclip " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
 echo "no-objectives.amxx	; no objectives " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
 echo "admin-online.amxx		; admin online status " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
 echo "ultimate_sounds.amxx	; ultimate sound package " >> "${HLDS}/cstrike/addons/amxmodx/configs/plugins.ini"
