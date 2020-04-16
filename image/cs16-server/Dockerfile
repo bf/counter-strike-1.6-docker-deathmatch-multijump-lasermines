@@ -18,7 +18,7 @@ COPY --chown=cstrike:cstrike mod/multijump/multijump.amxx /opt/hlds/cstrike/addo
 # laser mines plugin
 COPY --chown=cstrike:cstrike mod/lasermine/lasermine.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/lasermine.amxx
 
-# bullet damage plugin
+# bullet damage plugin, see https://forums.alliedmods.net/showpost.php?p=1131441&postcount=45
 COPY --chown=cstrike:cstrike mod/bullet-damage/bullet-damage.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/bullet-damage.amxx
 
 # hp-ap-after-kill plugin, see https://forums.alliedmods.net/showthread.php?p=919795
@@ -40,14 +40,14 @@ COPY --chown=cstrike:cstrike mod/fire-in-the-hole-remover/fire-in-the-hole-remov
 # csdm ammo refill, see https://forums.alliedmods.net/showpost.php?p=2193293&postcount=23
 COPY --chown=cstrike:cstrike mod/ammo-refill/ammo-refill.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/ammo-refill.amxx
 
-# antiblock, see https://forums.alliedmods.net/showpost.php?p=1955532&postcount=123
-COPY --chown=cstrike:cstrike mod/antiblock/antiblock.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/antiblock.amxx
+# # antiblock, see https://forums.alliedmods.net/showpost.php?p=1955532&postcount=123
+# COPY --chown=cstrike:cstrike mod/antiblock/antiblock.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/antiblock.amxx
 
 # no oibjectives, from https://forums.alliedmods.net/showthread.php?t=53812
 COPY --chown=cstrike:cstrike mod/no-objectives/no-objectives.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/no-objectives.amxx
 
 # admin online, see https://forums.alliedmods.net/showthread.php?t=92762
-COPY --chown=cstrike:cstrike mod/admin-online/admin-online.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/admin-onlin.amxx
+COPY --chown=cstrike:cstrike mod/admin-online/admin-online.amxx /opt/hlds/cstrike/addons/amxmodx/plugins/admin-online.amxx
 
 # install parachute plugin
 COPY --chown=cstrike:cstrike mod/parachute/parachute.sma /opt/hlds/cstrike/addons/amxmodx/scripting/parachute.sma
@@ -62,8 +62,8 @@ COPY --chown=cstrike:cstrike mod/dproto/dproto.cfg /opt/hlds/cstrike/dproto.cfg
 
 # add team semi clip, see https://forums.alliedmods.net/showthread.php?t=137980
 # add ultimate sounds pack, see https://forums.alliedmods.net/attachment.php?attachmentid=67247&d=1275855421
-COPY --chown=cstrike:cstrike packages/amxmodx/* /opt/hlds/cstrike/addons/amxmodx/
-COPY --chown=cstrike:cstrike packages/sound/* /opt/hlds/cstrike/sound/
+COPY --chown=cstrike:cstrike packages/amxmodx/ /opt/hlds/cstrike/addons/amxmodx/
+COPY --chown=cstrike:cstrike packages/sound/ /opt/hlds/cstrike/sound/
 
 # Add maps
 COPY --chown=cstrike:cstrike maps/* /opt/hlds/cstrike/maps/
